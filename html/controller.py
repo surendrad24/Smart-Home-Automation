@@ -26,9 +26,5 @@ delay = 5
  
 # Read the light sensor data
 mq_level = ReadChannel(mq_channel)
-  
- 
-  
- 
-print mq_level
+print(mq_level)
  

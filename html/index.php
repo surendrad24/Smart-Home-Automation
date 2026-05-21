@@ -1,15 +1,23 @@
 <?php
 #header("refresh: 1");
 
+
+function runRelayCommand($command, &$output = []) {
+    $relayScript = __DIR__ . '/relay.py';
+    $cmd = 'sudo python3 ' . escapeshellarg($relayScript) . ' ' . escapeshellarg($command);
+    return exec($cmd, $output);
+}
+
+
 // Funciones PHP RM1R1
 
-  if ($_POST[RM1R11]) { 
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R11'" ,$sdata);
+  if (isset($_POST['RM1R11'])) { 
+   $a = runRelayCommand('RM1R11', $sdata);
    echo $a;
   }
 
-  if ($_POST[RM1R10]) { 
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R10'" ,$sdata);
+  if (isset($_POST['RM1R10'])) { 
+   $a = runRelayCommand('RM1R10', $sdata);
    echo $a;
   }
 
@@ -18,13 +26,13 @@
 
 // Funciones PHP RM1R2
 
-  if ($_POST[RM1R21]) { 
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R21'" ,$sdata);
+  if (isset($_POST['RM1R21'])) { 
+   $a = runRelayCommand('RM1R21', $sdata);
    echo $a;
   }
 
-  if ($_POST[RM1R20]) { 
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R20'" ,$sdata);
+  if (isset($_POST['RM1R20'])) { 
+   $a = runRelayCommand('RM1R20', $sdata);
    echo $a;
   }
 
@@ -33,13 +41,13 @@
 
 // Funciones PHP RM1R3
 
-  if ($_POST[RM1R31]) { 
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R31'" ,$sdata);
+  if (isset($_POST['RM1R31'])) { 
+   $a = runRelayCommand('RM1R31', $sdata);
    echo $a;
   }
 
-  if ($_POST[RM1R30]) { 
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R30'" ,$sdata);
+  if (isset($_POST['RM1R30'])) { 
+   $a = runRelayCommand('RM1R30', $sdata);
    echo $a;
   }
 
@@ -48,13 +56,13 @@
 
 // Funciones PHP RM1R4
 
-  if ($_POST[RM1R41]) { 
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R41'" ,$sdata);
+  if (isset($_POST['RM1R41'])) { 
+   $a = runRelayCommand('RM1R41', $sdata);
    echo $a;
   }
 
-  if ($_POST[RM1R40]) { 
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R40'" ,$sdata);
+  if (isset($_POST['RM1R40'])) { 
+   $a = runRelayCommand('RM1R40', $sdata);
    echo $a;
   }
 
@@ -63,13 +71,13 @@
 
 // Funciones PHP RM1R5
 
-  if ($_POST[RM1R51]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R51'" ,$sdata);
+  if (isset($_POST['RM1R51'])) { 
+    $a = runRelayCommand('RM1R51', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM1R50]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R50'" ,$sdata);
+   if (isset($_POST['RM1R50'])) { 
+    $a = runRelayCommand('RM1R50', $sdata);
     echo $a;
    }
  
@@ -78,13 +86,13 @@
 
 // Funciones PHP RM1R6
 
-  if ($_POST[RM1R61]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R61'" ,$sdata);
+  if (isset($_POST['RM1R61'])) { 
+    $a = runRelayCommand('RM1R61', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM1R60]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R60'" ,$sdata);
+   if (isset($_POST['RM1R60'])) { 
+    $a = runRelayCommand('RM1R60', $sdata);
     echo $a;
    }
  
@@ -93,13 +101,13 @@
 
 // Funciones PHP RM1R7
 
-  if ($_POST[RM1R71]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R71'" ,$sdata);
+  if (isset($_POST['RM1R71'])) { 
+    $a = runRelayCommand('RM1R71', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM1R70]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R70'" ,$sdata);
+   if (isset($_POST['RM1R70'])) { 
+    $a = runRelayCommand('RM1R70', $sdata);
     echo $a;
    }
  
@@ -108,13 +116,13 @@
 
 // Funciones PHP RM1R8
 
-  if ($_POST[RM1R81]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R81'" ,$sdata);
+  if (isset($_POST['RM1R81'])) { 
+    $a = runRelayCommand('RM1R81', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM1R80]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R80'" ,$sdata);
+   if (isset($_POST['RM1R80'])) { 
+    $a = runRelayCommand('RM1R80', $sdata);
     echo $a;
    }
  
@@ -123,13 +131,13 @@
 
 // Funciones PHP RM2R1
 
-  if ($_POST[RM2R11]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R11'" ,$sdata);
+  if (isset($_POST['RM2R11'])) { 
+    $a = runRelayCommand('RM2R11', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM2R10]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R10'" ,$sdata);
+   if (isset($_POST['RM2R10'])) { 
+    $a = runRelayCommand('RM2R10', $sdata);
     echo $a;
    }
  
@@ -138,13 +146,13 @@
 
 // Funciones PHP RM2R2
 
-  if ($_POST[RM2R21]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R21'" ,$sdata);
+  if (isset($_POST['RM2R21'])) { 
+    $a = runRelayCommand('RM2R21', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM2R20]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R20'" ,$sdata);
+   if (isset($_POST['RM2R20'])) { 
+    $a = runRelayCommand('RM2R20', $sdata);
     echo $a;
    }
  
@@ -153,13 +161,13 @@
 
 // Funciones PHP RM2R3
 
-  if ($_POST[RM2R31]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R31'" ,$sdata);
+  if (isset($_POST['RM2R31'])) { 
+    $a = runRelayCommand('RM2R31', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM2R30]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R30'" ,$sdata);
+   if (isset($_POST['RM2R30'])) { 
+    $a = runRelayCommand('RM2R30', $sdata);
     echo $a;
    }
  
@@ -168,13 +176,13 @@
 
 // Funciones PHP RM2R4
 
-  if ($_POST[RM2R41]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R41'" ,$sdata);
+  if (isset($_POST['RM2R41'])) { 
+    $a = runRelayCommand('RM2R41', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM2R40]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R40'" ,$sdata);
+   if (isset($_POST['RM2R40'])) { 
+    $a = runRelayCommand('RM2R40', $sdata);
     echo $a;
    }
  
@@ -183,13 +191,13 @@
 
 // Funciones PHP RM2R5
 
-  if ($_POST[RM2R51]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R51'" ,$sdata);
+  if (isset($_POST['RM2R51'])) { 
+    $a = runRelayCommand('RM2R51', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM2R50]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R50'" ,$sdata);
+   if (isset($_POST['RM2R50'])) { 
+    $a = runRelayCommand('RM2R50', $sdata);
     echo $a;
    }
  
@@ -198,13 +206,13 @@
 
 // Funciones PHP RM2R6
 
-  if ($_POST[RM2R61]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R61'" ,$sdata);
+  if (isset($_POST['RM2R61'])) { 
+    $a = runRelayCommand('RM2R61', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM2R60]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R60'" ,$sdata);
+   if (isset($_POST['RM2R60'])) { 
+    $a = runRelayCommand('RM2R60', $sdata);
    }
  
  // End of RM2R6 functions
@@ -212,13 +220,13 @@
 
 // Funciones PHP RM2R7
 
-  if ($_POST[RM2R71]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R71'" ,$sdata);
+  if (isset($_POST['RM2R71'])) { 
+    $a = runRelayCommand('RM2R71', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM2R70]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R70'" ,$sdata);
+   if (isset($_POST['RM2R70'])) { 
+    $a = runRelayCommand('RM2R70', $sdata);
     echo $a;
    }
  
@@ -227,13 +235,13 @@
 
 // Funciones PHP RM2R8
 
-  if ($_POST[RM2R81]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R81'" ,$sdata);
+  if (isset($_POST['RM2R81'])) { 
+    $a = runRelayCommand('RM2R81', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM2R80]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R80'" ,$sdata);
+   if (isset($_POST['RM2R80'])) { 
+    $a = runRelayCommand('RM2R80', $sdata);
     echo $a;
    }
  
@@ -242,18 +250,18 @@
 
 // Funciones PHP RM3R1
 
-  if ($_POST[RM3R11]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R11'" ,$sdata);
+  if (isset($_POST['RM3R11'])) { 
+    $a = runRelayCommand('RM3R11', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM3R10]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R10'" ,$sdata);
+   if (isset($_POST['RM3R10'])) { 
+    $a = runRelayCommand('RM3R10', $sdata);
     echo $a;
    }
 
-   if ($_POST[RM3R1]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R1'" ,$sdata);
+   if (isset($_POST['RM3R1'])) { 
+    $a = runRelayCommand('RM3R1', $sdata);
     echo $a;
    }
  
@@ -262,17 +270,17 @@
 
 // Funciones PHP RM3R2
 
-  if ($_POST[RM3R21]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R21'" ,$sdata);
+  if (isset($_POST['RM3R21'])) { 
+    $a = runRelayCommand('RM3R21', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM3R20]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R20'" ,$sdata);
+   if (isset($_POST['RM3R20'])) { 
+    $a = runRelayCommand('RM3R20', $sdata);
     echo $a;
    }
-   if ($_POST[RM3R2]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R2'" ,$sdata);
+   if (isset($_POST['RM3R2'])) { 
+    $a = runRelayCommand('RM3R2', $sdata);
     echo $a;
    }
  
@@ -281,13 +289,13 @@
 
 // Funciones PHP RM3R3
 
-  if ($_POST[RM3R31]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R31'" ,$sdata);
+  if (isset($_POST['RM3R31'])) { 
+    $a = runRelayCommand('RM3R31', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM3R30]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R30'" ,$sdata);
+   if (isset($_POST['RM3R30'])) { 
+    $a = runRelayCommand('RM3R30', $sdata);
     echo $a;
    }
  
@@ -296,13 +304,13 @@
 
 // Funciones PHP RM3R4
 
-  if ($_POST[RM3R41]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R41'" ,$sdata);
+  if (isset($_POST['RM3R41'])) { 
+    $a = runRelayCommand('RM3R41', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM3R40]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R40'" ,$sdata);
+   if (isset($_POST['RM3R40'])) { 
+    $a = runRelayCommand('RM3R40', $sdata);
     echo $a;
    }
  
@@ -311,13 +319,13 @@
 
 // Funciones PHP RM3R5
 
-  if ($_POST[RM3R51]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R51'" ,$sdata);
+  if (isset($_POST['RM3R51'])) { 
+    $a = runRelayCommand('RM3R51', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM3R50]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R50'" ,$sdata);
+   if (isset($_POST['RM3R50'])) { 
+    $a = runRelayCommand('RM3R50', $sdata);
     echo $a;
    }
  
@@ -326,13 +334,13 @@
 
 // Funciones PHP RM3R6
 
-  if ($_POST[RM3R61]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R61'" ,$sdata);
+  if (isset($_POST['RM3R61'])) { 
+    $a = runRelayCommand('RM3R61', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM3R60]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R60'" ,$sdata);
+   if (isset($_POST['RM3R60'])) { 
+    $a = runRelayCommand('RM3R60', $sdata);
     echo $a;
    }
  
@@ -341,13 +349,13 @@
 
 // Funciones PHP RM3R7
 
-  if ($_POST[RM3R71]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R71'" ,$sdata);
+  if (isset($_POST['RM3R71'])) { 
+    $a = runRelayCommand('RM3R71', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM3R70]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R70'" ,$sdata);
+   if (isset($_POST['RM3R70'])) { 
+    $a = runRelayCommand('RM3R70', $sdata);
     echo $a;
    }
  
@@ -356,13 +364,13 @@
 
 // Funciones PHP RM3R8
 
-  if ($_POST[RM3R81]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R81'" ,$sdata);
+  if (isset($_POST['RM3R81'])) { 
+    $a = runRelayCommand('RM3R81', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM3R80]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R80'" ,$sdata);
+   if (isset($_POST['RM3R80'])) { 
+    $a = runRelayCommand('RM3R80', $sdata);
     echo $a;
    }
  
@@ -371,13 +379,13 @@
 
 // Funciones PHP RM4R1
 
-  if ($_POST[RM4R11]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM4R11'" ,$sdata);
+  if (isset($_POST['RM4R11'])) { 
+    $a = runRelayCommand('RM4R11', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM4R10]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM4R10'" ,$sdata);
+   if (isset($_POST['RM4R10'])) { 
+    $a = runRelayCommand('RM4R10', $sdata);
     echo $a;
    }
  
@@ -386,13 +394,13 @@
 
 // Funciones PHP RM4R2
 
-  if ($_POST[RM4R21]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM4R21'" ,$sdata);
+  if (isset($_POST['RM4R21'])) { 
+    $a = runRelayCommand('RM4R21', $sdata);
     echo $a;
    }
  
-   if ($_POST[RM4R20]) { 
-    $a- exec("sudo python /var/www/html/relay.py 'RM4R20'" ,$sdata);
+   if (isset($_POST['RM4R20'])) { 
+    $a = runRelayCommand('RM4R20', $sdata);
     echo $a;
    }
  
@@ -636,7 +644,7 @@
    
    <?php
    include 'includes.php';
-   $strdata = $sdata[0];
+   $strdata = $sdata;
    $log = "Event:(" . $strdata . ")";
    logger($log);
    echo $strdata;

@@ -2,6 +2,14 @@
 #header("refresh: 1");
 
 
+function runRelayCommand($command, &$output = []) {
+    $relayScript = __DIR__ . '/relay.py';
+    $cmd = 'sudo python3 ' . escapeshellarg($relayScript) . ' ' . escapeshellarg($command);
+    return exec($cmd, $output);
+}
+
+
+
 function microtime_float()
     {
         list($usec, $sec) = explode(" ", microtime());
@@ -15,17 +23,17 @@ function microtime_float()
 
 // Funciones PHP RM1R1
 
-  if ($_POST[RM1R11]) {
+  if (isset($_POST['RM1R11'])) {
    $time_start = microtime_float(); 
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R11'" ,$sdata);
+   $a = runRelayCommand('RM1R11', $sdata);
    echo $a;
    $time_end = microtime_float();
 
   }
 
-  if ($_POST[RM1R10]) { 
+  if (isset($_POST['RM1R10'])) { 
    $time_start = microtime_float();
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R10'" ,$sdata);
+   $a = runRelayCommand('RM1R10', $sdata);
    echo $a;
    $time_end = microtime_float();
   }
@@ -35,16 +43,16 @@ function microtime_float()
 
 // Funciones PHP RM1R2
 
-  if ($_POST[RM1R21]) { 
+  if (isset($_POST['RM1R21'])) { 
   $time_start = microtime_float();
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R21'" ,$sdata);
+   $a = runRelayCommand('RM1R21', $sdata);
    echo $a;
    $time_end = microtime_float();
   }
 
-  if ($_POST[RM1R20]) {
+  if (isset($_POST['RM1R20'])) {
    $time_start = microtime_float(); 
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R20'" ,$sdata);
+   $a = runRelayCommand('RM1R20', $sdata);
    echo $a;
    $time_end = microtime_float();
   }
@@ -54,16 +62,16 @@ function microtime_float()
 
 // Funciones PHP RM1R3
 
-  if ($_POST[RM1R31]) {
+  if (isset($_POST['RM1R31'])) {
    $time_start = microtime_float(); 
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R31'" ,$sdata);
+   $a = runRelayCommand('RM1R31', $sdata);
    echo $a;
    $time_end = microtime_float();
   }
 
-  if ($_POST[RM1R30]) { 
+  if (isset($_POST['RM1R30'])) { 
   $time_start = microtime_float();
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R30'" ,$sdata);
+   $a = runRelayCommand('RM1R30', $sdata);
    echo $a;
    $time_end = microtime_float();
   }
@@ -73,16 +81,16 @@ function microtime_float()
 
 // Funciones PHP RM1R4
 
-  if ($_POST[RM1R41]) {
+  if (isset($_POST['RM1R41'])) {
    $time_start = microtime_float(); 
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R41'" ,$sdata);
+   $a = runRelayCommand('RM1R41', $sdata);
    echo $a;
    $time_end = microtime_float();
   }
 
-  if ($_POST[RM1R40]) { 
+  if (isset($_POST['RM1R40'])) { 
    $time_start = microtime_float();
-   $a- exec("sudo python /var/www/html/relay.py 'RM1R40'" ,$sdata);
+   $a = runRelayCommand('RM1R40', $sdata);
    echo $a;
    $time_end = microtime_float();
   }
@@ -92,16 +100,16 @@ function microtime_float()
 
 // Funciones PHP RM1R5
 
-  if ($_POST[RM1R51]) { 
+  if (isset($_POST['RM1R51'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R51'" ,$sdata);
+    $a = runRelayCommand('RM1R51', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM1R50]) { 
+   if (isset($_POST['RM1R50'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R50'" ,$sdata);
+    $a = runRelayCommand('RM1R50', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -111,16 +119,16 @@ function microtime_float()
 
 // Funciones PHP RM1R6
 
-  if ($_POST[RM1R61]) { 
+  if (isset($_POST['RM1R61'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R61'" ,$sdata);
+    $a = runRelayCommand('RM1R61', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM1R60]) { 
+   if (isset($_POST['RM1R60'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R60'" ,$sdata);
+    $a = runRelayCommand('RM1R60', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -130,16 +138,16 @@ function microtime_float()
 
 // Funciones PHP RM1R7
 
-  if ($_POST[RM1R71]) { 
+  if (isset($_POST['RM1R71'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R71'" ,$sdata);
+    $a = runRelayCommand('RM1R71', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM1R70]) { 
+   if (isset($_POST['RM1R70'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R70'" ,$sdata);
+    $a = runRelayCommand('RM1R70', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -149,16 +157,16 @@ function microtime_float()
 
 // Funciones PHP RM1R8
 
-  if ($_POST[RM1R81]) { 
+  if (isset($_POST['RM1R81'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R81'" ,$sdata);
+    $a = runRelayCommand('RM1R81', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM1R80]) { 
+   if (isset($_POST['RM1R80'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM1R80'" ,$sdata);
+    $a = runRelayCommand('RM1R80', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -168,16 +176,16 @@ function microtime_float()
 
 // Funciones PHP RM2R1
 
-  if ($_POST[RM2R11]) { 
+  if (isset($_POST['RM2R11'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R11'" ,$sdata);
+    $a = runRelayCommand('RM2R11', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM2R10]) { 
+   if (isset($_POST['RM2R10'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R10'" ,$sdata);
+    $a = runRelayCommand('RM2R10', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -187,16 +195,16 @@ function microtime_float()
 
 // Funciones PHP RM2R2
 
-  if ($_POST[RM2R21]) { 
+  if (isset($_POST['RM2R21'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R21'" ,$sdata);
+    $a = runRelayCommand('RM2R21', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM2R20]) { 
+   if (isset($_POST['RM2R20'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R20'" ,$sdata);
+    $a = runRelayCommand('RM2R20', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -206,16 +214,16 @@ function microtime_float()
 
 // Funciones PHP RM2R3
 
-  if ($_POST[RM2R31]) { 
+  if (isset($_POST['RM2R31'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R31'" ,$sdata);
+    $a = runRelayCommand('RM2R31', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM2R30]) { 
+   if (isset($_POST['RM2R30'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R30'" ,$sdata);
+    $a = runRelayCommand('RM2R30', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -225,16 +233,16 @@ function microtime_float()
 
 // Funciones PHP RM2R4
 
-  if ($_POST[RM2R41]) { 
+  if (isset($_POST['RM2R41'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R41'" ,$sdata);
+    $a = runRelayCommand('RM2R41', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM2R40]) { 
+   if (isset($_POST['RM2R40'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R40'" ,$sdata);
+    $a = runRelayCommand('RM2R40', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -244,16 +252,16 @@ function microtime_float()
 
 // Funciones PHP RM2R5
 
-  if ($_POST[RM2R51]) { 
+  if (isset($_POST['RM2R51'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R51'" ,$sdata);
+    $a = runRelayCommand('RM2R51', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM2R50]) { 
+   if (isset($_POST['RM2R50'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R50'" ,$sdata);
+    $a = runRelayCommand('RM2R50', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -263,16 +271,16 @@ function microtime_float()
 
 // Funciones PHP RM2R6
 
-  if ($_POST[RM2R61]) { 
+  if (isset($_POST['RM2R61'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R61'" ,$sdata);
+    $a = runRelayCommand('RM2R61', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM2R60]) { 
+   if (isset($_POST['RM2R60'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R60'" ,$sdata);
+    $a = runRelayCommand('RM2R60', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -282,16 +290,16 @@ function microtime_float()
 
 // Funciones PHP RM2R7
 
-  if ($_POST[RM2R71]) { 
+  if (isset($_POST['RM2R71'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R71'" ,$sdata);
+    $a = runRelayCommand('RM2R71', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM2R70]) { 
+   if (isset($_POST['RM2R70'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R70'" ,$sdata);
+    $a = runRelayCommand('RM2R70', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -301,16 +309,16 @@ function microtime_float()
 
 // Funciones PHP RM2R8
 
-  if ($_POST[RM2R81]) { 
+  if (isset($_POST['RM2R81'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R81'" ,$sdata);
+    $a = runRelayCommand('RM2R81', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM2R80]) { 
+   if (isset($_POST['RM2R80'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM2R80'" ,$sdata);
+    $a = runRelayCommand('RM2R80', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -320,23 +328,23 @@ function microtime_float()
 
 // Funciones PHP RM3R1
 
-  if ($_POST[RM3R11]) { 
+  if (isset($_POST['RM3R11'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R11'" ,$sdata);
+    $a = runRelayCommand('RM3R11', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM3R10]) { 
+   if (isset($_POST['RM3R10'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R10'" ,$sdata);
+    $a = runRelayCommand('RM3R10', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
 
-   if ($_POST[RM3R1]) { 
+   if (isset($_POST['RM3R1'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R1'" ,$sdata);
+    $a = runRelayCommand('RM3R1', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -346,22 +354,22 @@ function microtime_float()
 
 // Funciones PHP RM3R2
 
-  if ($_POST[RM3R21]) { 
+  if (isset($_POST['RM3R21'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R21'" ,$sdata);
+    $a = runRelayCommand('RM3R21', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM3R20]) { 
+   if (isset($_POST['RM3R20'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R20'" ,$sdata);
+    $a = runRelayCommand('RM3R20', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
-   if ($_POST[RM3R2]) { 
+   if (isset($_POST['RM3R2'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R2'" ,$sdata);
+    $a = runRelayCommand('RM3R2', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -371,16 +379,16 @@ function microtime_float()
 
 // Funciones PHP RM3R3
 
-  if ($_POST[RM3R31]) { 
+  if (isset($_POST['RM3R31'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R31'" ,$sdata);
+    $a = runRelayCommand('RM3R31', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM3R30]) { 
+   if (isset($_POST['RM3R30'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R30'" ,$sdata);
+    $a = runRelayCommand('RM3R30', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -390,16 +398,16 @@ function microtime_float()
 
 // Funciones PHP RM3R4
 
-  if ($_POST[RM3R41]) { 
+  if (isset($_POST['RM3R41'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R41'" ,$sdata);
+    $a = runRelayCommand('RM3R41', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM3R40]) { 
+   if (isset($_POST['RM3R40'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R40'" ,$sdata);
+    $a = runRelayCommand('RM3R40', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -409,16 +417,16 @@ function microtime_float()
 
 // Funciones PHP RM3R5
 
-  if ($_POST[RM3R51]) { 
+  if (isset($_POST['RM3R51'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R51'" ,$sdata);
+    $a = runRelayCommand('RM3R51', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM3R50]) { 
+   if (isset($_POST['RM3R50'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R50'" ,$sdata);
+    $a = runRelayCommand('RM3R50', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -428,16 +436,16 @@ function microtime_float()
 
 // Funciones PHP RM3R6
 
-  if ($_POST[RM3R61]) { 
+  if (isset($_POST['RM3R61'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R61'" ,$sdata);
+    $a = runRelayCommand('RM3R61', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM3R60]) { 
+   if (isset($_POST['RM3R60'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R60'" ,$sdata);
+    $a = runRelayCommand('RM3R60', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -447,16 +455,16 @@ function microtime_float()
 
 // Funciones PHP RM3R7
 
-  if ($_POST[RM3R71]) { 
+  if (isset($_POST['RM3R71'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R71'" ,$sdata);
+    $a = runRelayCommand('RM3R71', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM3R70]) { 
+   if (isset($_POST['RM3R70'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R70'" ,$sdata);
+    $a = runRelayCommand('RM3R70', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -466,16 +474,16 @@ function microtime_float()
 
 // Funciones PHP RM3R8
 
-  if ($_POST[RM3R81]) { 
+  if (isset($_POST['RM3R81'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R81'" ,$sdata);
+    $a = runRelayCommand('RM3R81', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM3R80]) { 
+   if (isset($_POST['RM3R80'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM3R80'" ,$sdata);
+    $a = runRelayCommand('RM3R80', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -485,16 +493,16 @@ function microtime_float()
 
 // Funciones PHP RM4R1
 
-  if ($_POST[RM4R11]) { 
+  if (isset($_POST['RM4R11'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM4R11'" ,$sdata);
+    $a = runRelayCommand('RM4R11', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM4R10]) { 
+   if (isset($_POST['RM4R10'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM4R10'" ,$sdata);
+    $a = runRelayCommand('RM4R10', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -504,16 +512,16 @@ function microtime_float()
 
 // Funciones PHP RM4R2
 
-  if ($_POST[RM4R21]) { 
+  if (isset($_POST['RM4R21'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM4R21'" ,$sdata);
+    $a = runRelayCommand('RM4R21', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
  
-   if ($_POST[RM4R20]) { 
+   if (isset($_POST['RM4R20'])) { 
     $time_start = microtime_float();
-    $a- exec("sudo python /var/www/html/relay.py 'RM4R20'" ,$sdata);
+    $a = runRelayCommand('RM4R20', $sdata);
     echo $a;
     $time_end = microtime_float();
    }
@@ -777,7 +785,7 @@ function microtime_float()
    
    <?php
    include 'includes.php';
-   $strdata = $sdata[0];
+   $strdata = $sdata;
    $delay = (round($time_end - $time_start,2) . " Sec");
    $log = "Event:" . $strdata . "($delay)";
    logger($log);

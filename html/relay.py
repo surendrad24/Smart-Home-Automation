@@ -17,6 +17,10 @@ GPIO.setup(37,GPIO.OUT) # Uv Light Physical/Board pin 37 GPIO/BCM pin 26 Wiring 
 GPIO.setup(16,GPIO.OUT) # Aqua Light Physical/Board pin 16 GPIO/BCM pin 23 Wiring Pi pin 4
 
 
+if len(sys.argv) < 2:
+    print('Missing command argument')
+    sys.exit(2)
+
 cmd = str(sys.argv[1])
 
 if __name__ == '__main__':
@@ -35,137 +39,137 @@ def spdata():
     print (sdata)
 while True:
     if cmd == 'RM1R11':
-        ser.write('111')
+        ser.write(b'111')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R10':
-        ser.write('110')
+        ser.write(b'110')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R21':
-        ser.write('121')
+        ser.write(b'121')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R20':
-        ser.write('120')
+        ser.write(b'120')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R31':
-        ser.write('131')
+        ser.write(b'131')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R30':
-        ser.write('130')
+        ser.write(b'130')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R41':
-        ser.write('141')
+        ser.write(b'141')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R40':
-        ser.write('140')
+        ser.write(b'140')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R51':
-        ser.write('151')
+        ser.write(b'151')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R50':
-        ser.write('150')
+        ser.write(b'150')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R61':
-        ser.write('161')
+        ser.write(b'161')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R60':
-        ser.write('160')
+        ser.write(b'160')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R71':
-        ser.write('171')
+        ser.write(b'171')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R70':
-        ser.write('170')
+        ser.write(b'170')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R81':
-        ser.write('181')
+        ser.write(b'181')
         spdata()
         sys.exit(0)
     elif cmd == 'RM1R80':
-        ser.write('180')
+        ser.write(b'180')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R11':
-        ser.write('211')
+        ser.write(b'211')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R10':
-        ser.write('210')
+        ser.write(b'210')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R21':
-        ser.write('211')
+        ser.write(b'211')
         time.sleep(1)
-        ser.write('221')
+        ser.write(b'221')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R20':
-        ser.write('210')
+        ser.write(b'210')
         time.sleep(1)
-        ser.write('220')
+        ser.write(b'220')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R31':
-        ser.write('231')
+        ser.write(b'231')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R30':
-        ser.write('230')
+        ser.write(b'230')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R41':
-        ser.write('241')
+        ser.write(b'241')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R40':
-        ser.write('240')
+        ser.write(b'240')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R51':
-        ser.write('251')
+        ser.write(b'251')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R50':
-        ser.write('250')
+        ser.write(b'250')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R61':
-        ser.write('261')
+        ser.write(b'261')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R60':
-        ser.write('260')
+        ser.write(b'260')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R71':
-        ser.write('271')
+        ser.write(b'271')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R70':
-        ser.write('270')
+        ser.write(b'270')
         spdata()
         sys.exit(0)
     elif cmd == 'RM2R81':
-        ser.write('281')
+        ser.write(b'281')
         sdata = ser.readline().decode('utf-8').rstrip()
         print (sdata)
         time.sleep(0.5)
         sys.exit(0)
     elif cmd == 'RM2R80':
-        ser.write('280')
+        ser.write(b'280')
         spdata()
         time.sleep(0.5)
         sys.exit(0)
@@ -264,19 +268,23 @@ while True:
         print (sdata)
         sys.exit(0)
     elif cmd == 'RM4R11':
-        ser.write('311')
+        ser.write(b'311')
         spdata()
         sys.exit(0)
     elif cmd == 'RM4R10':
-        ser.write('310')
+        ser.write(b'310')
         spdata()
         sys.exit(0)
     elif cmd == 'RM4R21':
-        ser.write('321')
+        ser.write(b'321')
         spdata()
         sys.exit(0)
     elif cmd == 'RM4R20':
-        ser.write('320')
+        ser.write(b'320')
         spdata()
         sys.exit(0)
     
+
+    else:
+        print('Unknown command: ' + cmd)
+        sys.exit(1)

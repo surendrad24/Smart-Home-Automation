@@ -312,7 +312,7 @@ class phpSerial
 		}
 		else
 		{
-			$ret = $this->_exec("mode " . $this->_windevice . " PARITY=" . $parity{0}, $out);
+			$ret = $this->_exec("mode " . $this->_windevice . " PARITY=" . $parity, $out);
 		}
 
 		if ($ret === 0)
@@ -470,12 +470,12 @@ class phpSerial
 
 		$return = exec ("setserial " . $this->_device . " " . $param . " " . $arg . " 2>&1");
 
-		if ($return{0} === "I")
+		if ($return === "I")
 		{
 			trigger_error("setserial: Invalid flag", E_USER_WARNING);
 			return false;
 		}
-		elseif ($return{0} === "/")
+		elseif ($return === "/")
 		{
 			trigger_error("setserial: Error with device file", E_USER_WARNING);
 			return false;
