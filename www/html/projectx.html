@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>RNR 1</h1>
+
+<h2>A demonstration of how to generate Templates </h2>
+<h3>EMAIL</h3>
+
+<label for="fname">Name:</label>
+<input type="text" id="cname" value="Some name..."><br>
+<label for="fname">Phone No:</label>
+<input type="text" id="pnum" value="Phone num..."><br>
+<label for="pname">Product Name:</label>
+<input type="text" id="pname" value="Product name...">
+
+<p>Click the "Generate" button to get the Template</p>
+
+<button onclick="myFunction()">Try it</button><br>
+<br>
+<label for="fname">Subject:</label>
+
+<b>Update on your order for <var id="mypro"><var id="prname"> _Product Name_</var>.</var>   </b><br><br>
+
+<label for="fname">Email Body:</label>
+
+<p>Hi <var id="mynam"><var id="name"> _CX Name_</var></var>  , </p>
+
+<p>We tried to get in touch with you on  <var id="myph"><var id="num"> _Phone Number_</var></var> , to discuss the issue <var id="mypro1"><var id="prname"> _Product Name_</var>.</var> but couldn't reach you.</p>
+
+<p>We'll try calling you again within 4 hours. Meanwhile, please let us know
+if we can reach you on another number and a convenient time between 9 am and 9 pm by replying to this email. We hope to hear from you soon. </p>
+
+<p>Regards,<br>
+Flipkart.</p>
+
+
+<br>
+
+<h3>SMS</h3>
+
+<p>Update on query: We tried reaching you to discuss your concern about <var id="mypro2"><var id="pname"> _Product Name_</var>.</var> Delay in delivery and have sent you an update to your registered email address . We will call
+you again within the next 4hours.</p>
+
+<script>
+function myFunction() {
+  var a = document.getElementById("mynam");
+  a.style.color = "red";
+  var b = document.getElementById("myph");
+  b.style.color = "red";
+  var c = document.getElementById("mypro");
+  c.style.color = "red";
+  var d = document.getElementById("mypro1");
+  d.style.color = "red";
+  var e = document.getElementById("mypro2");
+  e.style.color = "red";
+  var x = document.getElementById("cname").value;
+  document.getElementById("name").innerHTML = x;
+  var y = document.getElementById("pnum").value;
+  document.getElementById("num").innerHTML = y;
+  var z = document.getElementById("pname").value;
+  document.getElementById("prname").innerHTML = z;
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+

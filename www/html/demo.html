@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="style.css">
+	<script src="jquery.min.js"></script>
+<script>
+function controller()
+{
+ var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	
+	//alert("the cylinder is ordered");
+	/*var image = document.getElementById('myImage');
+	//alert(xmlhttp.responseText);
+    image.src = xmlhttp.responseText;//"img/pic_bulbon.gif";*/
+	//console.log(xmlhttp.responseText);
+window.setTimeout(controller, 5000);
+	 
+	document.getElementById("stim1").value=xmlhttp.responseText;
+	changesize1();
+    }
+  }
+xmlhttp.open("GET","mq6on.php",true);
+xmlhttp.send(); 
+}
+</script>	
+	<script>
+	function changesize()
+  {
+   var mqval=document.getElementById("stim1").value;
+   
+  var x=document.getElementById("stim").value;
+  var y=(x/100)*20;
+  var z=parseInt(y);
+  document.getElementById("lcval").innerHTML=z+"kg";
+  if(z!=0 && z>=3)
+  {
+   $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The Cylinder is loaded</h3></div></div>");
+   $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of MQ-6 sensor is :"+mqval+" </h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  
+  document.getElementById("bg").style.backgroundColor="orange";
+  if(mqval>45)
+  {
+    /*
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	alert("the cylinder is ordered");
+	
+    }
+  }
+xmlhttp.open("GET","http://www.converita.com/smartc/modules/a1/index.php",true);
+xmlhttp.send();
+*/
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  
+ $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The main power supply is turned off</h3></div></div>");  
+ $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The V.O.I.P call is established</h3></div></div>");  
+ $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The Exhaust fan is turned on</h3></div></div>");  
+  document.getElementById('myImage').src = "img/pic_bulboff.png";
+  document.getElementById('myImage1').src = "img/callon.png";
+  document.getElementById('myImage2').src = "img/fanon.png";
+  document.getElementById("bg").style.backgroundColor="tomato";
+	
+  }else
+  {
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The main power supply is turned on</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The Exhaust fan is turned off</h3></div></div>");  
+   document.getElementById('myImage').src = "img/pic_bulbon.png";
+  document.getElementById('myImage1').src = "img/calloff.png";
+  document.getElementById('myImage2').src = "img/fanoff.png";
+  }
+  
+  }
+  else if(z!=0 && z<=3)
+  {
+  //window.open('http://www.converita.com/smartc/modules/a2/index.php','_blank');
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  
+  
+ $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The LPG cylinder is ordered</h3></div></div>");  
+
+  
+  
+  
+ var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	
+	alert("the cylinder is ordered");
+	/*var image = document.getElementById('myImage');
+	//alert(xmlhttp.responseText);
+    image.src = xmlhttp.responseText;//"img/pic_bulbon.gif";*/
+    }
+  }
+xmlhttp.open("GET","http://www.converita.com/smartc/modules/a2/index.php",true);
+xmlhttp.send(); 
+  
+  
+  
+  
+  
+  
+  
+  //document.getElementById("bg").style.backgroundColor="tomato";
+  if(mqval>45)
+  {
+  
+  
+    /*
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	alert("the cylinder is ordered");
+	
+    }
+  }
+xmlhttp.open("GET","http://www.converita.com/smartc/modules/a1/index.php",true);
+xmlhttp.send();
+*/
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  
+   $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The main power supply is turned off</h3></div></div>");  
+ $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The V.O.I.P call is established</h3></div></div>");  
+ $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The Exhaust fan is turned on</h3></div></div>");  
+  
+  document.getElementById('myImage').src = "img/pic_bulbon.png";
+  document.getElementById('myImage1').src = "img/callon.png";
+  document.getElementById('myImage2').src = "img/fanon.png";
+  document.getElementById("bg").style.backgroundColor="tomato";
+	
+  }else
+  {
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  
+   $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The main power supply is turned on</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The Exhaust fan is turned off</h3></div></div>");  
+ 
+ 
+  document.getElementById('myImage').src = "img/pic_bulbon.png";
+  document.getElementById('myImage1').src = "img/calloff.png";
+  document.getElementById('myImage2').src = "img/fanoff.png";
+  }
+  }
+  else if( z==0)
+  {
+  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:lime;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:lime;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:lime;\">* The Cylinder is not loaded</h3></div></div>");
+  
+  document.getElementById("bg").style.backgroundColor="lime";
+  
+  document.getElementById('myImage').src = "img/pic_bulbon.png";
+  document.getElementById('myImage1').src = "img/calloff.png";
+  document.getElementById('myImage2').src = "img/fanoff.png";
+  
+  }
+  }
+	</script>
+	<script>
+	
+ function changesize1()
+  {
+    var mqval=document.getElementById("stim1").value;
+   
+  var x=document.getElementById("stim").value;
+  var y=(x/100)*20;
+  var z=parseInt(y);
+  document.getElementById("lcval").innerHTML=z+"kg";
+ 
+  document.getElementById("mqval").innerHTML=mqval+"%";
+  
+   
+ if(z!=0 && z>=3)
+  {
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The Cylinder is loaded</h3></div></div>");
+  
+  document.getElementById("bg").style.backgroundColor="orange";
+  if(mqval>45)
+  {
+  
+    /*
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	alert("the cylinder is ordered");
+	
+    }
+  }
+xmlhttp.open("GET","http://www.converita.com/smartc/modules/a1/index.php",true);
+xmlhttp.send();
+*/
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  
+$("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The main power supply is turned off</h3></div></div>");  
+ $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The V.O.I.P call is established</h3></div></div>");  
+ $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\"style=\"color:tomato;\">* The Exhaust fan is turned on</h3></div></div>");  
+   
+  document.getElementById('myImage').src = "img/pic_bulboff.png";
+  document.getElementById('myImage1').src = "img/callon.png";
+  document.getElementById('myImage2').src = "img/fanon.png";
+  document.getElementById("bg").style.backgroundColor="tomato";
+	
+  }else
+  {
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  
+   $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The main power supply is turned on</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The Exhaust fan is turned off</h3></div></div>");  
+  
+  document.getElementById('myImage').src = "img/pic_bulbon.png";
+  document.getElementById('myImage1').src = "img/calloff.png";
+  document.getElementById('myImage2').src = "img/fanoff.png";
+  }
+  
+  }
+  else if(z!=0 && z<=3)
+  {
+ // window.open('http://www.converita.com/smartc/modules/a2/index.php','_blank');
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  
+ $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The LPG cylinder is ordered</h3></div></div>");  
+
+  
+ 
+  var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	alert("the cylinder is ordered");
+	/*var image = document.getElementById('myImage2');
+	//alert(xmlhttp.responseText);
+    image.src = "img/fanon.png";//xmlhttp.responseText;//"img/pic_bulbon.gif";*/
+    }
+  }
+xmlhttp.open("GET","http://www.converita.com/smartc/modules/a2/index.php",true);
+xmlhttp.send();
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  //document.getElementById("bg").style.backgroundColor="tomato";
+  if(mqval>45)
+  {
+  
+  /*
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	alert("the cylinder is ordered");
+	
+    }
+  }
+xmlhttp.open("GET","http://www.converita.com/smartc/modules/a1/index.php",true);
+xmlhttp.send();
+*/
+  
+  
+  
+  
+  
+  
+  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The main power supply is turned off</h3></div></div>");  
+ $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The V.O.I.P call is established</h3></div></div>");  
+ $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:tomato;\">* The Exhaust fan is turned on</h3></div></div>");  
+ 
+  document.getElementById('myImage').src = "img/pic_bulboff.png";
+  document.getElementById('myImage1').src = "img/callon.png";
+  document.getElementById('myImage2').src = "img/fanon.png";
+  document.getElementById("bg").style.backgroundColor="tomato";
+	
+  }else
+  {
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The main power supply is turned on</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:orange;\">* The Exhaust fan is turned off</h3></div></div>");  
+  
+  document.getElementById('myImage').src = "img/pic_bulbon.png";
+  document.getElementById('myImage1').src = "img/calloff.png";
+  document.getElementById('myImage2').src = "img/fanoff.png";
+  }
+  }
+  else if( z==0)
+  {
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:lime;\">* The value of MQ-6 sensor is :"+mqval+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:lime;\">* The value of load cell is :"+z+"</h3></div></div>");  
+  $("#actlogpan").append("<div class=\"row control-group\"><div class=\"form-group col-xs-12 floating-label-form-group controls\"><h3 class=\"help-block text-danger\" style=\"color:lime;\">* The Cylinder is not loaded</h3></div></div>");
+   
+ document.getElementById("bg").style.backgroundColor="lime";
+  
+  document.getElementById('myImage').src = "img/pic_bulbon.png";
+  document.getElementById('myImage1').src = "img/calloff.png";
+  document.getElementById('myImage2').src = "img/fanoff.png";
+  document.getElementById("stim1").value="0";
+  document.getElementById("mqval").innerHTML="0%";
+  }
+   
+   
+ 
+
+  }
+	function notLoaded()
+	{
+		document.getElementById("bg").style.backgroundColor="lime";
+		
+	}
+	function loaded()
+	{
+		document.getElementById("bg").style.backgroundColor="orange";
+		
+	}
+	function emer()
+	{
+		document.getElementById("bg").style.backgroundColor="tomato";
+		
+	}
+	</script>
+
+<script>
+ $(document).ready(function(){
+  $("#mq6on").click(function(){
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	var image = document.getElementById('myImage');
+	//alert(xmlhttp.responseText);
+    document.getElementById("mq6on").innerHTML = xmlhttp.responseText+"%";
+document.getElementById("mqval").innerHTML = xmlhttp.responseText+"%";
+document.getElementById("stim1").value = xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","mq6on.php",true);
+xmlhttp.send();
+  });
+});
+
+</script>
+
+	
+		<script>
+ $(document).ready(function(){
+  $("#on").change(function(){
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	var image = document.getElementById('myImage');
+	//alert(xmlhttp.responseText);
+    image.src = "img/pic_bulbon.png";
+    }
+  }
+xmlhttp.open("GET","ledon.php",true);
+xmlhttp.send();
+  });
+});
+
+</script>
+<script>
+ $(document).ready(function(){
+  $("#off").change(function(){
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	var image = document.getElementById('myImage');
+	//alert(xmlhttp.responseText);
+	image.src = "img/pic_bulboff.png";
+    
+    }
+  }
+xmlhttp.open("GET","ledoff.php",true);
+xmlhttp.send();
+  });
+});
+
+</script>
+
+
+		<script>
+ $(document).ready(function(){
+  $("#on1").change(function(){
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	var image = document.getElementById('myImage1');
+	//alert(xmlhttp.responseText);
+    image.src = "img/callon.png";//xmlhttp.responseText;//"img/pic_bulbon.gif";
+    }
+  }
+xmlhttp.open("GET","on.txt",true);
+xmlhttp.send();
+  });
+});
+
+</script>
+<script>
+ $(document).ready(function(){
+  $("#off1").change(function(){
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	var image = document.getElementById('myImage1');
+	//alert(xmlhttp.responseText);
+	image.src = "img/calloff.png";//xmlhttp.responseText; //"img/pic_bulboff.gif";
+    
+    }
+  }
+xmlhttp.open("GET","off.txt",true);
+xmlhttp.send();
+  });
+});
+
+</script>
+
+
+
+
+		<script>
+ $(document).ready(function(){
+  $("#on2").change(function(){
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	var image = document.getElementById('myImage2');
+	//alert(xmlhttp.responseText);
+    image.src = "img/fanon.png";//xmlhttp.responseText;//"img/pic_bulbon.gif";
+    }
+  }
+xmlhttp.open("GET","fanon.php",true);
+xmlhttp.send();
+  });
+});
+
+</script>
+<script>
+ $(document).ready(function(){
+  $("#off2").change(function(){
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	var image = document.getElementById('myImage2');
+	//alert(xmlhttp.responseText);
+	image.src = "img/fanoff.png";//xmlhttp.responseText; //"img/pic_bulboff.gif";
+    
+    }
+  }
+xmlhttp.open("GET","fanoff.php",true);
+xmlhttp.send();
+  });
+});
+
+</script>
+
+
+
+		<script>
+ $(document).ready(function(){
+  $("#on3").change(function(){
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	var image = document.getElementById('myImage3');
+	//alert(xmlhttp.responseText);
+    image.src = "img/mailon.png";//xmlhttp.responseText;//"img/pic_bulbon.gif";
+    }
+  }
+xmlhttp.open("GET","on.txt",true);
+xmlhttp.send();
+  });
+});
+
+</script>
+<script>
+ $(document).ready(function(){
+  $("#off3").change(function(){
+    var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	var image = document.getElementById('myImage3');
+	//alert(xmlhttp.responseText);
+	image.src = "img/mailoff.png";//xmlhttp.responseText; //"img/pic_bulboff.gif";
+    
+    }
+  }
+xmlhttp.open("GET","off.txt",true);
+xmlhttp.send();
+  });
+});
+
+</script>
+	<!--<script>
+function changeImage() {
+    var image = document.getElementById('myImage');
+    if (image.src.match("bulbon")) {
+        image.src = "img/pic_bulboff.gif";
+    } else {
+        image.src = "img/pic_bulbon.gif";
+    }
+}
+</script>-->
+<style>
+.container {
+  width: 500px;
+}
+
+
+.circular {
+	width: 300px;
+	height: 300px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url(img/loaded.png) no-repeat;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	}
+
+.circular1 {
+	width: 300px;
+	height: 300px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url(img/white.png) no-repeat;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	}
+/* toggle in label designing */
+.toggle {
+    position : relative ;
+    display : inline-block;
+    width : 100px;
+    height : 52px;
+    background-color: red;
+    border-radius: 30px;
+    border: 2px solid gray;
+}
+
+
+#progress_meter {
+    position: relative;
+    display:inline-block;
+     width: 100px;
+     height: 100px;
+     margin: 0;
+     padding: 0;
+}
+
+#progress_meter ul {
+    list-style-type: none;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+     margin: 0;
+}
+    
+#progress_meter li {
+    position: absolute;
+    top: 0px;
+    width: 100px;
+    height: 100px;
+     padding: 0;
+     margin: 0;
+}
+
+#progress_meter p {
+    width: 100px;
+    height: 100px;
+     padding: 0;
+     margin: 0;
+}
+
+#progress_meter li p { -webkit-transition: all .7s ease-out;}
+
+#progress_meter span { display: block; width: 50px; height: 100px;}
+
+#progress_meter ul :nth-child(odd) { clip: rect(0px, 100px, 100px, 50px);}
+
+#progress_meter ul :nth-child(even) { clip: rect(0px, 50px, 100px, 0px);}
+
+.pie_left{
+    -moz-border-radius-topleft: 50px;
+    -moz-border-radius-bottomleft: 50px;
+    -webkit-border-top-left-radius: 50px;
+    -webkit-border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.pie_right{
+    margin-left: 50px;
+    -moz-border-radius-topright: 50px;
+    -moz-border-radius-bottomright: 50px;
+    -webkit-border-top-right-radius: 50px;
+    -webkit-border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+#c1_l span,#c1_r span{ 
+    background: #22a063;
+}
+
+/* progress_meter data (degree value) */
+#progress_meter ul #c1_r p{ -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); -o-transform: rotate(180deg);}
+#progress_meter ul #c1_l p{ -moz-transform: rotate(90deg); -webkit-transform: rotate(90deg); -o-transform: rotate(90deg);}
+
+/* progress #22a063*/
+#center-circle{
+    width:90px;height:90px;position:absolute;z-index:1000;top:5px;left:5px;background:#fff;text-align:center;
+    border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;-khtml-border-radius:50%;-o-border-radius:50%;
+}
+#center-circle span{
+    display:inline-block;margin-top:50%;line-height:0;font-weight:bold;color:tomato;font-size:30px;
+}
+
+</style>
+
+
+  <style>
+
+
+
+label { 
+    padding:0.4em 2em 0.4em 0; 
+}
+.toggle-btn-grp { 
+    margin:3px 0; 
+}
+.toggle-btn { 
+    text-align:centre; 
+    margin:5px 2px;
+    padding:0.4em 3em; 
+    color:#000; 
+    background-color:#FFF; 
+    border-radius:10px; 
+    display:inline-block; 
+    border:solid 1px #CCC; 
+    cursor:pointer;
+}
+
+.toggle-btn-grp.joint-toggle .toggle-btn { 
+    margin:5px 0; 
+    padding:0.4em 2em; 
+    border-radius:0;
+    border-right-color:white;
+}
+.toggle-btn-grp.joint-toggle .toggle-btn:first-child { 
+    margin-left:2px; 
+    border-radius: 10px 0px 0px 10px; 
+}
+.toggle-btn-grp.joint-toggle .toggle-btn:last-child { 
+    margin-right:2px;  
+    border-radius: 0px 10px 10px 0px;
+    border-right:solid 1px #CCC;
+}
+
+
+.toggle-btn:hover { 
+    border:solid 1px #a0d5dc !important; 
+    background:#f1fdfe;
+}
+
+
+.toggle-btn.success { 
+    background:lightgreen;
+    border:solid 1px green !important; 
+}
+
+
+.visuallyhidden { 
+    border: 0; 
+    clip: rect(0 0 0 0); 
+    height: 1px; 
+    margin: -1px; 
+    overflow: hidden; 
+    padding: 0; 
+    position: absolute; 
+    width: 1px; 
+}
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { 
+    clip: auto; 
+    height: auto; 
+    margin: 0; 
+    overflow: visible; 
+    position: static; 
+    width: auto; 
+}
+
+
+/* CSS only version */
+.toggle-btn-grp.cssonly * {
+    width:140px;
+    height:30px;
+    line-height:30px;
+}
+.toggle-btn-grp.cssonly div {
+    display:inline-block;
+    position:relative;
+    margin:5px 2px;
+}
+
+.toggle-btn-grp.cssonly div label {
+    position:absolute;
+    z-index:0;
+    padding:0;
+    text-align:center;
+}
+
+.toggle-btn-grp.cssonly div input {
+    position:absolute;
+    z-index:1;
+    cursor:pointer;
+    opacity:0;
+}
+
+.toggle-btn-grp.cssonly div:hover label {
+    border:solid 1px #a0d5dc !important; 
+    background:#f1fdfe;
+}
+
+.toggle-btn-grp.cssonly div input:checked + label {
+    background:lightgreen;
+    border:solid 1px green !important; 
+}
+
+
+  
+  
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+      <title>S.C.P</title>
+<link rel="shortcut icon" href="fav.png" />
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	
+
+</head>
+
+<body id="page-top" class="index" onload="controller()">
+ <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html" style="color:#eee">S.C.P</a>
+				<ul class="nav navbar-nav navbar-right">
+			  
+                    
+					 <li class="page-scroll">
+                        <a href="#page-top" onclick="notLoaded()"><span style="color:lime;">Not Loaded</span></a>
+                    </li>
+					<li class="page-scroll">
+                        <a href="#page-top" onclick="loaded()"><span style="color:orange;">Loaded</span></a>
+                    </li>
+					<li class="page-scroll">
+                        <a href="#page-top" onclick="emer()"><span style="color:tomato;">Emergency</span></a>
+                    </li>
+                   
+                </ul>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               
+			   <ul class="nav navbar-nav navbar-right">
+			  
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+					 
+                   
+                    <li class="page-scroll" >
+                        <a href="#" style="color:green">Demo</a>
+                    </li>
+					<li class="page-scroll">
+                        <a href="#contact" >Activity log</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    
+
+
+    <!-- Portfolio Grid Section -->
+    <section id="bg" style="background-color:lime;">
+        <div class="container" >
+           <!-- <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Portfolio</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>-->
+			
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+      <div align = "center" class = "centereddiv">
+        <div class = "heading">Toggle Buttons</div>
+      <div class = "subtitle">Relay Controls</div>
+        <div align = "center" id = "box">
+          <label class = "switch">
+            <input type = "checkbox" onchange="myFunction()">
+            <div class = "slider round">
+            </div>
+      </div>
+      <div id="myDIV" style="display: none;">OFF</div>
+            <div class="row">
+                <div class="col-sm-4 portfolio-item">
+                   <div id="progress_meter" style="margin: 60px 110px 0;" >
+							<ul>
+							<li id="c1_r"><p><span class="pie_left"></span></p></li>
+							<li id="c1_l"><p><span class="pie_right"></span></p></li>
+							</ul>
+								<div id="center-circle">
+								<span id="mqval">0%</span>
+								</div>
+							</div>
+								<div class="intro-text" style="margin: 0 60px 0;">
+									<button class="btn btn-success btn-lg" id="mq6on">MQ-6 sensor value</button>
+                                </div>
+								<div class="controls">
+							<input value="0" type="range" name="stim1" id="stim1" onchange="changesize1()"   style="letter-spacing:normal; text-spacing:normal; padding: 5px 5px; "  />
+						</div>
+					
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                   
+                        <img id="myImage" src="img/pic_bulbon.png" class="img-responsive" alt="">
+                   	<div class="toggle-btn-grp joint-toggle" >
+					Power supply State : <label onchange="s_on()" class="toggle-btn"><input type="radio" id="on" name="group3"/>ON</label><label onchange="s_off()" class="toggle-btn"><input type="radio" id="off" name="group3"/>OFF</label>
+				</div>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                   
+                        <img id="myImage1" src="img/calloff.png" class="img-responsive" alt="">
+                   	<div class="toggle-btn-grp joint-toggle" >
+					Call State : <label onchange="s_on()" class="toggle-btn"><input type="radio" id="on1" name="group3"/>ON</label><label onchange="s_off()" class="toggle-btn"><input type="radio" id="off1" name="group3"/>OFF</label>
+				</div> 	
+                </div>
+                <div class="col-sm-4 portfolio-item">
+				
+                   <div id="progress_meter" style="margin: 60px 110px 0;">
+				   
+							<ul>
+							<li id="c1_r"><p><span class="pie_left"></span></p></li>
+							<li id="c1_l"><p><span class="pie_right"></span></p></li>
+							</ul>
+								<div id="center-circle"  >
+								<span id="lcval">0kg</span>
+								
+								</div>
+								
+								
+							</div>
+								<div class="intro-text" style="margin: 0 60px 0;">
+									<button class="btn btn-success btn-lg">Load sensor value</button>
+                                </div>
+								
+								
+								<div class="controls">
+							<input value="0" type="range" name="stim" id="stim" onchange="changesize()"   style="letter-spacing:normal; text-spacing:normal; padding: 5px 5px; "  />
+						</div>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    
+                        <img id="myImage2" src="img/fanoff.png" class="img-responsive" alt="">
+                   	<div class="toggle-btn-grp joint-toggle" >
+					Fan State : <label onchange="s_on()" class="toggle-btn"><input type="radio" id="on2" name="group3"/>ON</label><label onchange="s_off()" class="toggle-btn"><input type="radio" id="off2" name="group3"/>OFF</label>
+				</div> 	
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                      <img id="myImage3" src="img/mailoff.png" class="img-responsive" alt="">
+                   	<div class="toggle-btn-grp joint-toggle" >
+					Mail State : <label onchange="" class="toggle-btn"><input type="radio" id="on3" name="group3"/>ON</label><label onchange="" class="toggle-btn"><input type="radio" id="off3" name="group3"/>OFF</label>
+				</div> 	 	
+                </div>
+            </div>
+        </div>
+    </section>
+
+	
+	
+	
+
+   <!-- Contact Section -->
+    <section id="contact">
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Activity log</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2" id="actlogpan">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                   
+                        
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Location</h3>
+						<hr class="star-light">
+                        <p>Department of Information Technology, <br>SSN College of Engineering</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Mentor</h3>
+						<hr class="star-light">
+                        <!--<ul class="list-inline">
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                            </li>
+                        </ul>-->
+						<p>Mrs. CHITHRA SELVARAJ,<br/> Professor, <br/> SSN College of Engineering </p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>About Us</h3>
+						<hr class="star-light">
+                        <p>Nandan <a href="http://facebook.com/nandudeserves"> @ Facebook</a></p>
+                        <p>Sanjana <a href="http://facebook.com/nandudeserves"> @ Facebook</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; www.smartcylinderpad.com 2014
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visble-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- Portfolio Modals -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/freelancer.js"></script>
+
+</body>
+
+</html>
+
+<script>
+  function function1(){
+  alert("heelloo");
+  window.location.href="R8on.php";
+  }
+
+  function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.innerHTML === "OFF") {
+    x.innerHTML='<object type="text/html" data="R8on.php" ></object>';
+    alert("Relay is turned ON");
+    x = ON
+  } else {
+    x.innerHTML='<object type="text/html" data="R8off.php" ></object>';
+    alert("Relay is turned OFF");
+    x = OFF
+    
+  }
+}
+  
+  </script>
