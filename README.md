@@ -7,17 +7,17 @@ Raspberry Pi based home-automation project with a legacy PHP web panel and a Fla
 This repository controls relays and GPIO-connected devices (locks, pump, light, fan, etc.) from a web UI.
 
 Primary control paths:
-- PHP UI (`www/html/index.php`, `www/html/relay.php`) triggers `relay.py` commands.
-- Python relay controller (`www/html/relay.py`) sends serial commands to `/dev/ttyUSB0` and toggles Raspberry Pi GPIO pins.
-- Flask UI (`www/app/app.py`) offers a simpler GPIO dashboard on port `9090`.
+- PHP UI (`html/index.php`, `html/relay.php`) triggers `relay.py` commands.
+- Python relay controller (`html/relay.py`) sends serial commands to `/dev/ttyUSB0` and toggles Raspberry Pi GPIO pins.
+- Flask UI (`app/app.py`) offers a simpler GPIO dashboard on port `9090`.
 
 ## Architecture Overview
 
-- `www/html/`: Main legacy web app (PHP + static assets).
-- `www/html/relay.py`: Core actuator logic and command-to-relay mapping (`RMxRy*` commands).
-- `www/app/`: Flask app and template-based control panel.
-- `www/python/script.py`: WebIOPi example script (scheduled GPIO light control).
-- `www/html/modules/a1/`: Third-party Twilio PHP SDK and examples (kept for compatibility; not core relay logic).
+- `html/`: Main legacy web app (PHP + static assets).
+- `html/relay.py`: Core actuator logic and command-to-relay mapping (`RMxRy*` commands).
+- `app/`: Flask app and template-based control panel.
+- `python/script.py`: WebIOPi example script (scheduled GPIO light control).
+- `html/modules/a1/`: Third-party Twilio PHP SDK and examples (kept for compatibility; not core relay logic).
 
 ## Hardware/OS Assumptions
 
@@ -32,14 +32,14 @@ Primary control paths:
 - Many PHP files use hardcoded command execution paths such as:
   - `sudo python /var/www/html/relay.py 'RM...'
 - If your deploy path differs from `/var/www/html`, update those paths before running.
-- Files under `www/html/modules/a1/` are vendor-like legacy content and may include demo code; review before production use.
+- Files under `html/modules/a1/` are vendor-like legacy content and may include demo code; review before production use.
 
 ## Running the Flask UI (optional panel)
 
 From repo root:
 
 ```bash
-cd www/app
+cd app
 python app.py
 ```
 
@@ -48,7 +48,7 @@ Then open:
 
 ## Running the PHP UI (legacy panel)
 
-- Deploy `www/html/` under your web server root (or adjust absolute command paths in PHP).
+- Deploy `html/` under your web server root (or adjust absolute command paths in PHP).
 - Ensure web user can execute Python relay scripts with required GPIO/serial permissions.
 - Open `index.php` in browser through your web server.
 
@@ -65,7 +65,7 @@ Relay commands are encoded strings such as:
 ## Folder Naming Cleanup Done
 
 To keep names shell-safe and consistent, this repo now uses:
-- `www/html/reference-assets/` (renamed from `www/html/downloaded images/`)
+- `html/reference-assets/` (renamed from `html/downloaded images/`)
 
 No code references were found to the old folder name, so behavior is unchanged.
 
